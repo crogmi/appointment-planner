@@ -3,36 +3,30 @@ import ContactForm from '../../components/contactForm/ContactForm';
 import TileList from '../../components/tileList/TileList';
 
 export const ContactsPage = (props) => {
-
-  const contacts = props.contacts;
-  const addContact = props.addContact;
-  
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [duplicate, setDuplicate] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    /*
-    Add contact info and clear data
-    if the contact name is not a duplicate
-    */
-
-    if(!duplicate) {
-      addContact(name, phone, email);
-      setName('');
-      setPhone('');
-      setEmail('');
-    }
-  };
-
   useEffect(() => {
-    const names = contacts.map((contact) => contact.name);
+    const names = props.contacts.map((contact) => contact.name);
     if (names.includes(name)) {
       setDuplicate(true);
     }
-  }, [contacts, name])
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if(duplicate) {
+      return;
+    }
+    alert('Form has been properly submitted');
+    props.addContact(name, phone, email);
+    setName('');
+    setPhone('');
+    setEmail('');
+  };
 
   return (
     <div>
@@ -44,12 +38,12 @@ export const ContactsPage = (props) => {
                      setPhone={setPhone}
                      email={email}
                      setEmail={setEmail}
-                     onSubmit={handleSubmit} />
+                     handleSubmit={handleSubmit} />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList contacts={contacts} />
+        <TileList contacts={props.contacts} />
       </section>
     </div>
   );

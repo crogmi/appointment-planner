@@ -10,11 +10,12 @@ function App() {
     CONTACTS: "/contacts",
     APPOINTMENTS: "/appointments",
   };
-  const[contacts, setContacts] = useState([]);
-  const [appointments, setAppointments] = useState([]);
+
+  const[contacts, setContacts] = useState([{name: 'Chris', phone: '909-999-3330', email: 'chris@gmail.com'}, {name: 'Pat', phone: '909-937-9238', email: 'pat@gmail.com'}]);
+  const [appointments, setAppointments] = useState([{title: 'Chris', contact: '909-999-3330', date: 'September 30, 2021', time: '7:00 PM'}, {title: 'Pat', contact: '909-937-9238', date: 'October 30, 2021', time: '8:00 PM'}]);
 
   const addContact = (name, phone, email) => {
-    const contact = {
+    let contact = {
       name: name,
       phone: phone,
       email: email
@@ -26,7 +27,7 @@ function App() {
   };
 
   const addAppointment = (title, contact, date, time) => {
-    const appointment = {
+    let appointment = {
       title: title,
       contact: contact,
       date: date,
@@ -54,12 +55,10 @@ function App() {
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-             {/* Add props to ContactsPage */}
             <ContactsPage contacts={contacts} 
                           addContact={addContact} />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            {/* Add props to AppointmentsPage */}
             <AppointmentsPage appointments={appointments}
                               addAppointment={addAppointment} />
           </Route>
