@@ -1,9 +1,11 @@
 import React from "react";
 
-export const TileList = () => {
+const TileList = () => {
   return (
     <div>
       
     </div>
   );
 };
+
+export default TileList;
