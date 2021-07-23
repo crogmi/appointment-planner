@@ -38,9 +38,12 @@ export const ContactsPage = (props) => {
     <div>
       <section>
         <h2>Add Contact</h2> 
-        <ContactForm name={name} 
+        <ContactForm name={name}
+                     setName={setName}
                      phone={phone}
+                     setPhone={setPhone}
                      email={email}
+                     setEmail={setEmail}
                      onSubmit={handleSubmit} />
       </section>
       <hr />
