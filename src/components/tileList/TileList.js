@@ -1,20 +1,15 @@
 import React from "react";
+import Tile from '../tile/Tile';
 
 const TileList = (props) => {
-  /*
-  const values = Object.values(props.contacts);
-  */
 
+  const list = props.contacts;
 
   return (
     <div>
-      {/*
-        {values.map((value, index) => (
-        <p key={index} className={index === 0 ? 'tile-title' : 'tile'}>
-          {value}
-        </p>
+      {list.map((obj, index) => (
+        <Tile object={obj} key={index}  />
       ))}
-      */}
     </div>
   );
 };
