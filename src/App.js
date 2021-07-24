@@ -60,6 +60,7 @@ function App() {
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointments={appointments}
+                              contacts={contacts}
                               addAppointment={addAppointment} />
           </Route>
         </Switch>
