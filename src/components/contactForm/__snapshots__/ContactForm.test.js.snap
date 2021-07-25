@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders ContactForm renders without crashing 1`] = `
+<form>
+  <label
+    for="name"
+  >
+    Name
+  </label>
+  <input
+    id="name"
+    onChange={[Function]}
+    type="text"
+  />
+  <label
+    for="phone"
+  >
+    Phone number
+  </label>
+  <input
+    id="phone"
+    onChange={[Function]}
+    pattern="^[2-9]\\\\d{2}-\\\\d{3}-\\\\d{4}$"
+    type="text"
+  />
+  <label
+    for="email"
+  >
+    Email
+  </label>
+  <input
+    id="email"
+    onChange={[Function]}
+    type="text"
+  />
+  <button
+    type="submit"
+    value="submit"
+  >
+    Submit
+  </button>
+</form>
+`;
